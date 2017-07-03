@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app="ngApp">
+		<div ng-controller="headerCtrl" style="border:1px solid blue">
+			<!--V-->
+			<!--{{name}}=>laoxie-->
+			<p style="color: red;">1.字符串</p>
+			<p id="name">{{name}}</p>
+			<!--$("#name").html()-->
+			<!--$("#name").attr().css()-->
+			<!---->
+			
+			<p style="color: red;">2.对象</p>
+			<p>{{objobj.name}}他会{{objobj.skill}}</p>
+			
+			<p style="color: {{arrrrr[0]}};" id="{{id}}">3.数组</p>
+			<p>{{arrrrr[1]}}</p>
+			<!--$().show()-->
+			<!--$().hide()-->
+			<p style="color: {{arrrrr[0]}};">4.布尔值</p>
+			<p style="display: {{!bool?'block':'none'}};">是否显示</p>
+			<p>{{bool?"你就是真":"你就是假"}}</p>
+			<button ng-click="bool=!bool">Ok</button>
+			
+			
+			<p style="color: {{arrrrr[0]}};">5.数字</p>
+			<p>{{num/10+2+'a'}}</p>
+			
+			<p style="color: {{arrrrr[0]}};">6.函数</p>
+			<!--onclick->ng-click
+			onchange->ng-change
+			onmousedown->ng-mousedown-->
+			<button ng-click="bigger()">Ok</button>
+			<style>
+				p{
+					/*运算符*/
+					font-size: {{size+'px'}};
+				}
+			</style>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<!--$,jQuery-->
+	<script>
+		console.log(angular)
+			//模块的名字 [需要依赖的模块]
+		var app = angular.module("ngApp", []);
+		console.log(app)
+
+		//C (M V) $scope作用域
+		app.controller("headerCtrl", function($scope) {
+			//M 提供数据的地方
+			$scope.name = "头部";	
+			
+			$scope.objobj = {
+				name:"laoxie",
+				skill:"ps"
+			}
+			
+			$scope.arrrrr = ["blue","red","yellow"]
+			//$("#id").attr("id","abc")
+			$scope.id = "abc"
+			$scope.bool = true;
+			$scope.size = 20;
+			$scope.num = 20;
+			//$().on()
+			$scope.bigger = function(){
+				$scope.size = 50;
+			}
+		})
+	</script>
+
+</html>

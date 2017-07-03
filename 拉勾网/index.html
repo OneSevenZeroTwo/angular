@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" href="css/weui.css" />
+		<link rel="stylesheet" href="css/swiper.css" />
+		<link rel="stylesheet" href="css/base.css" />
+	</head>
+
+	<body ng-app="lagouApp">
+		<!--view-->
+		<div ng-controller="headerCtrl">
+			<header>{{title}}</header>
+		</div>
+		<div ng-controller="swiperCtrl">
+			<!-- Swiper -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img ng-src="{{imgs[0]}}" /></div>
+					<div class="swiper-slide"><img ng-src="{{imgs[1]}}" /></div>
+					<div class="swiper-slide">Slide 3</div>
+					<div class="swiper-slide">Slide 4</div>
+					<div class="swiper-slide">Slide 5</div>
+					<div class="swiper-slide">Slide 6</div>
+					<div class="swiper-slide">Slide 7</div>
+					<div class="swiper-slide">Slide 8</div>
+					<div class="swiper-slide">Slide 9</div>
+					<div class="swiper-slide">Slide 10</div>
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<div ng-controller="listCtrl">
+			<div class="weui-panel weui-panel_access">
+				<div class="weui-panel__bd">
+					<div ng-bind-html="html"></div>
+				</div>
+				<div class="weui-panel__ft" style="margin-bottom: 53px;">
+					<a href="javascript:void(0);" onclick="loadMore()" class="weui-cell weui-cell_access weui-cell_link">
+						<div class="weui-cell__bd">查看更多</div>
+						<span class="weui-cell__ft"></span>
+					</a>
+				</div>
+				<div class="page__bd">
+					<div class="weui-loadmore">
+						<i class="weui-loading"></i>
+						<span class="weui-loadmore__tips">正在加载</span>
+					</div>
+					<div class="weui-loadmore weui-loadmore_line">
+						<span class="weui-loadmore__tips">暂无数据</span>
+					</div>
+					<div class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+						<span class="weui-loadmore__tips"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-controller="footerCtrl">
+			<div class="weui-tabbar" style="position: fixed;">
+				<a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+					<span style="display: inline-block;position: relative;">
+                        <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                        <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+					</span>
+					<p class="weui-tabbar__label">微信</p>
+				</a>
+				<a href="javascript:;" class="weui-tabbar__item">
+					<img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+					<p class="weui-tabbar__label">通讯录</p>
+				</a>
+				<a href="javascript:;" class="weui-tabbar__item">
+					<span style="display: inline-block;position: relative;">
+                        <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                        <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+					</span>
+					<p class="weui-tabbar__label">发现</p>
+				</a>
+				<a href="javascript:;" class="weui-tabbar__item">
+					<img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+					<p class="weui-tabbar__label">我</p>
+				</a>
+			</div>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script src="js/swiper.js"></script>
+	<script>
+		//主模块
+		var app = angular.module("lagouApp", [])
+	</script>
+	<script src="controller/headerCtrl.js"></script>
+	<script src="controller/swiperCtrl.js"></script>
+	<script src="controller/listCtrl.js"></script>
+	<script src="controller/footerCtrl.js"></script>
+</html>

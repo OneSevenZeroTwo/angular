@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="zhiling">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="indexCtrl">
+			<!--<p>{{name}}</p>-->
+			<p style="color:red">ng-bind vs {{'{'}}{{'{'}} {{'}'}}{{'}'}}</p>
+			<p ng-bind="obj.skill"></p>
+			<p>{{obj.skill}}</p>
+			
+			<p style="color:red">ng-bind-html</p>
+			<p ng-bind-html="html"></p>
+			<!--<img src="         ../拉勾网/img/1.jpg" /><script>alert("123")</script><img src="../拉勾网/img/1.jpg        " />-->
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("zhiling",[]);
+		app.controller("indexCtrl",function($scope,$sce){
+			$scope.name = "laoxie";
+			$scope.obj = {
+				skill:"ps"
+			}
+			$scope.html = "<p>123<span>456</span></p>";
+			$scope.html = $sce.trustAsHtml($scope.html);
+		})
+	</script>
+</html>

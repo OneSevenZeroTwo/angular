@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body ng-app="ngApp">
+		<div ng-controller="headerCtrl" style="border:1px solid red">
+			<!--V-->
+			<!--{{name}}=>laoxie-->
+			<p>{{name}}</p>
+		</div>
+		<div ng-controller="containerCtrl" style="border:1px solid blue">
+			<!--V-->
+			<!--{{name}}=>laoxie-->
+			<p>{{name}}</p>
+		</div>
+		<div ng-controller="footerCtrl" style="border:1px solid green">
+			<!--V-->
+			<!--{{name}}=>laoxie-->
+			<p>{{name}}</p>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<!--$,jQuery-->
+	<script>
+		console.log(angular)
+			//模块的名字 [需要依赖的模块]
+		var app = angular.module("ngApp", []);
+		console.log(app)
+
+		//C (M V) $scope作用域
+		app.controller("headerCtrl", function($scope) {
+			//M
+			$scope.name = "头部";
+			
+		})
+		app.controller("containerCtrl", function($scope) {
+			//M
+			$scope.name = "内容"
+		})
+		app.controller("footerCtrl", function($scope) {
+			//M
+			$scope.name = "底部"
+		})
+	</script>
+
+</html>
