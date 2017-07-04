@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{name}}</p>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		app.controller("indexCtrl", function($scope, $http) {
+			//model
+			$scope.name = "laoxie";
+			$http({
+				method: "POST",
+				url: "http://localhost:12345",
+				headers: {
+					'Content-Type': undefined
+				},
+				data: {
+					//callback:"JSON_CALLBACK",
+					skill: "PS"
+				}
+			}).then(function(data) {
+				console.log(data);
+				//$scope.$apply();//脏值检测
+				$scope.name = data.data.name
+			}, function(err) {
+
+			})
+			
+			$http({
+				method: "GET",
+				url: "http://localhost:12345",
+				headers: {
+					'Content-Type': undefined
+				},
+				params: {
+					//callback:"JSON_CALLBACK",
+					skill: "PS"
+				}
+			}).then(function(data) {
+				console.log(data);
+				//$scope.$apply();//脏值检测
+				$scope.name = data.data.name
+			}, function(err) {
+
+			})
+		})
+	</script>
+
+</html>

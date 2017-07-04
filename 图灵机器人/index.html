@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="turingApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<input ng-model="ask" ng-keyup="send()" />
+			<p>{{answer}}</p>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("turingApp", []);
+		app.controller("indexCtrl", function($scope, $http) {
+			$scope.ask = "";
+			$scope.answer = "等待发送...";
+			$scope.send = function() {
+				$http({
+					method: "GET",
+					url: "http://www.tuling123.com/openapi/api?key=c75ba576f50ddaa5fd2a87615d144ecf",
+					params: {
+						info: $scope.ask
+					}
+				}).then(function(data) {
+					$scope.answer = data.data.text;
+					console.log(data);
+				})
+			}
+		})
+	</script>
+
+</html>

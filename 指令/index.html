@@ -58,6 +58,48 @@
 				<option ng-repeat="arr in arrs" ng-value="arr.age">{{arr.name}}</option>
 			</select>
 			<p>{{age}}</p>
+			
+			
+			<p style="color: red;">ng-show</p>
+			<p ng-show="bool">Hello</p>
+			
+			<p style="color: red;">ng-hide</p>
+			<p ng-hide="bool">Hello</p>
+			
+			
+			<p style="color: red;">ng-if</p>
+			<p ng-if="bool">Hello</p>
+			
+			<button ng-click="bool=!bool">Ok</button>
+			
+			<p style="color: red;">ng-class</p>
+			
+			<p class="{{bool?'red':''}}">ng-class</p>
+			<p ng-class="{'red':false,'size':bool}">ng-class</p>
+			
+			<style>
+				.red {
+					color: red;
+				}
+				.size{
+					font-size: 30px;
+				}
+			</style>
+			
+			<p style="color: red;">ng-style</p>
+			<input ng-model="size" type="range" />
+			<select ng-model="color">
+				<option value="blue">blue</option>
+				<option value="green">green</option>
+				<option value="red">red</option>
+			</select>
+			<p ng-style="{color:color,fontSize:size+'px'}">style</p>
+			
+			<p style="color: red;">ng-src</p>
+			<img ng-src="{{src}}" />
+			<p style="color: red;">ng-href</p>
+			<a ng-href="{{href}}"></a>
+			<link />
 		</div>
 	</body>
 	<script src="angular.js"></script>
@@ -89,6 +131,9 @@
 			}]
 			
 			$scope.age = 18
+			$scope.bool = true
+			$scope.size = 20
+			$scope.color = "red"
 		})
 	</script>
 

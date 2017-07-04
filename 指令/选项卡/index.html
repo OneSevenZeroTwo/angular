@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#tab{
+			display: flex;
+		}
+		
+		h3{
+			flex: 1;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+		}
+		
+		.active {
+			border-bottom: 1px solid red;
+		}
+	</style>
+	<body>
+		<div ng-controller="indexCtrl">
+			<div id="tab">
+				<h3 ng-click="change(1)" ng-class="{'active':page==1}">首页</h3>
+				<h3 ng-click="change(2)" ng-class="{'active':page==2}">军事</h3>
+				<h3 ng-click="change(3)" ng-class="{'active':page==3}">娱乐</h3>
+			</div>
+			<div ng-show="page==1">
+				1
+			</div>
+			<div ng-show="page==2">
+				2
+			</div>
+			<div ng-show="page==3">
+				3
+			</div>
+		</div>
+	</body>
+	<script src="../angular.js"></script>
+	<script>
+		var app = angular.module("ngApp",[]);
+		app.controller("indexCtrl",function($scope){
+			$scope.page = 3;
+			[
+			[1,0,0],
+			[0,1,0],
+			[0,0,1],
+			]
+			$scope.change = function(page){
+				$scope.page = page
+			}
+		})
+	</script>
+</html>
