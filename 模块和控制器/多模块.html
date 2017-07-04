@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{name}}</p>
+		</div>
+		<div ng-controller="homeCtrl">
+			<p>{{name}}</p>
+		</div>
+		<div ng-controller="detailCtrl">
+			<p>{{name}}</p>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		//主模块
+		var module1 = angular.module("ngApp",["ngApp2","ngApp3"]);
+		module1.controller("indexCtrl",function($scope){
+			$scope.name = "laoxie"
+		})
+		
+		//分模块
+		var module2 = angular.module("ngApp2",[]);
+		module2.controller("homeCtrl",function($scope){
+			$scope.name = "laolan"
+		})
+		
+		//分模块
+		var module3 = angular.module("ngApp3",[]);
+		module3.controller("detailCtrl",function($scope){
+			$scope.name = "laoyao"
+		})
+	</script>
+</html>

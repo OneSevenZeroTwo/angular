@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="indexCtrl">
+		<!--负责修改-->
+		<input ng-model="name" />
+		<!--负责显示-->
+		<p ng-bind="name"></p>
+		<!--$.val
+		$.html
+		$.text-->
+	</body>
+	<script src="angular.js"></script>
+	<script src="jquery-3.1.1.min.js"></script>
+	<script>
+		var app = angular.module("ngApp",[]);
+		app.controller("indexCtrl",function($scope){
+			//负责修改
+			$scope.name = "abc"
+			/*$.ajax({
+				type:"get",
+				url:"data.json",
+				async:true,
+				dataType:"json",
+				success:function(data){
+					console.log(data.name)
+					$scope.name = data.name;
+					//手动触发脏值检测，刷新值
+					$scope.$apply()
+					console.log($scope.name)
+				}
+			});*/
+			//$('input').val("123");
+			$('p').css("color","red");
+			//$scope.$apply();
+		})
+	</script>
+</html>

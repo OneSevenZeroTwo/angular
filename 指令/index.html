@@ -1,31 +1,95 @@
 <!DOCTYPE html>
 <html ng-app="zhiling">
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
+
 	<body>
 		<div ng-controller="indexCtrl">
 			<!--<p>{{name}}</p>-->
 			<p style="color:red">ng-bind vs {{'{'}}{{'{'}} {{'}'}}{{'}'}}</p>
 			<p ng-bind="obj.skill"></p>
 			<p>{{obj.skill}}</p>
-			
+
 			<p style="color:red">ng-bind-html</p>
 			<p ng-bind-html="html"></p>
 			<!--<img src="         ../拉勾网/img/1.jpg" /><script>alert("123")</script><img src="../拉勾网/img/1.jpg        " />-->
+
+			<p style="color:red" ng-init="skill='ps'">ng-init</p>
+			<p>{{skill}}</p>
+
+			<p style="color: red;">ng-click</p>
+			<button ng-click="Click()">{{button}}</button>
+
+			<p style="color: red;">ng-model(非常重要) input select textarea</p>
+			<!--$().val()-->
+			<input ng-model="text" />
+			<button ng-click="Click()">{{button}}</button>
+			<p>{{text}}</p>
+
+			<textarea ng-model="text"></textarea>
+
+			<select ng-model="text">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+			</select>
+
+			<p style="color: red;">ng-repeat</p>
+			<!--for in-->
+			<ul>
+				<li ng-repeat="arr in arrs">{{arr.name}} {{arr.age}}</li>
+			</ul>
+			
+			<table>
+				<tr>
+					<th>姓名</th>
+					<th>年龄</th>
+				</tr>
+				<tr ng-repeat="arr in arrs">
+					<th>{{arr.name}}</th>
+					<th>{{arr.age}}</th>
+				</tr>
+			</table>
+			
+			<select ng-model="age">
+				<option ng-repeat="arr in arrs" ng-value="arr.age">{{arr.name}}</option>
+			</select>
+			<p>{{age}}</p>
 		</div>
 	</body>
 	<script src="angular.js"></script>
 	<script>
-		var app = angular.module("zhiling",[]);
-		app.controller("indexCtrl",function($scope,$sce){
+		var app = angular.module("zhiling", []);
+		app.controller("indexCtrl", function($scope, $sce) {
 			$scope.name = "laoxie";
 			$scope.obj = {
-				skill:"ps"
+				skill: "ps"
 			}
 			$scope.html = "<p>123<span>456</span></p>";
 			$scope.html = $sce.trustAsHtml($scope.html);
+			//$scope.skill = "ps"
+			$scope.button = "ok"
+			$scope.text = "";
+			$scope.Click = function() {
+				$scope.button = "ko"
+				console.log($scope.text)
+			}
+			$scope.arrs = [{
+				name: "laoxie",
+				age: 18
+			}, {
+				name: "laolan",
+				age: 81
+			}, {
+				name: "laomeng",
+				age: 8
+			}]
+			
+			$scope.age = 18
 		})
 	</script>
+
 </html>
