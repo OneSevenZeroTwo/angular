@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{name}}</p>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		console.log(app)
+		app.controller("indexCtrl", function($scope, tool, tool2, pi, api, SHARD_HEIGHT, skill) {
+			$scope.name = "laoxie"
+			console.log(tool)
+			console.log(tool2)
+			console.log(pi)
+			console.log(api)
+			console.log(SHARD_HEIGHT)
+			console.log(skill)
+		});
+		//构造器 单例对象
+		app.service("tool", function() {
+				this.add = function() {
+					return a + b
+				}
+			})
+			//工厂
+		app.factory("tool2", function() {
+				return {
+					add: function(a, b) {
+						return a + b
+					}
+				}
+			})
+			//定义常量
+		app.constant("pi", Math.PI)
+			//定义变量
+		app.value("api", "http://localhost:8888")
+		app.value("appName", "拉勾网")
+		app.provider("skill", function() {
+			return {
+				$get: function() {
+					return {
+						name: "ps"
+					}
+				}
+			}
+		});
+		//配置服务
+		app.config(function($provide) {
+			$provide.constant('SHARD_HEIGHT', 306);
+			$provide.value('apii', 306);
+			$provide.factory()
+			$provide.service()
+		})
+	</script>
+
+</html>

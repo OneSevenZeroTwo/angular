@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html ng-app="ngApp">
+
 	<head>
 		<meta charset="UTF-8">
 		<title>{{skill}}</title>
 	</head>
+
 	<body>
 		<div ng-controller="headerCtrl" style="border: 1px solid green;">
 			<p style="color: red;">$scope配合表达式</p>
 			<p>{{name}}</p>
 			<p ng-bind="name"></p>
-			
+
 			<p style="color: red;">$http</p>
-			
+
 			<p style="color: red;">$rootScope根作用域 ng的全局变量</p>
 			<p>{{skill}}</p>
 			<p>{{age}}</p>
-			
+
 			<p style="color: red;">$sce</p>
 			<p style="color: red;">$location</p>
 			<p style="color: red;">$timeout && $interval</p>
@@ -30,17 +32,24 @@
 	</body>
 	<script src="angular.js"></script>
 	<script>
-		var app = angular.module("ngApp",[]);
-		app.controller("headerCtrl",function($scope,$http,$rootScope,$sce,$location,$timeout,$interval,$window,$document){
+		var app = angular.module("ngApp", []);
+		app.controller("headerCtrl", function($scope, $http, $rootScope, $sce, $location, $timeout, $interval, $window, $document) {
 			$scope.name = "laoxie"
-			
-			/*$http({
-				
-			}).then(function(data){
-				
-			},function(err){
-				
-			})*/
+
+			$http({
+				method:"post",
+				url: "http://localhost:8081/home",
+				headers: {
+					'Content-Type': undefined
+				},
+				data: {
+					test: 'test'
+				}
+			}).then(function(data) {
+
+			}, function(err) {
+
+			})
 			$scope.num = 1;
 			$rootScope.skill = "ps";
 			/*setInterval(function(){
@@ -48,22 +57,23 @@
 				$scope.$apply();
 				console.log($scope.num)
 			},1000)*/
-			$timeout(function(){
+			$timeout(function() {
 				console.log("abc")
-			},1000)
-			$interval(function(){
+			}, 1000)
+			$interval(function() {
 				$scope.num++;
-			},1000)
-			
+			}, 1000)
+
 			//window.location.href = ""
 			//$window.location.href = "";
 			$window.localStorage
 			$document[0].getElementById("num").style.color = "green"
 			console.log($document)
 		})
-		app.controller("containerCtrl",function($scope,$rootScope){
+		app.controller("containerCtrl", function($scope, $rootScope) {
 			$scope.name = "laoyao"
 			$rootScope.age = 16
 		})
 	</script>
+
 </html>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html ng-app="ngApp">
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
+
 	<body>
 		<div ng-controller="indexCtrl">
 			<p>{{name}}</p>
@@ -14,13 +16,21 @@
 	</body>
 	<script src="angular.js"></script>
 	<script>
-		var app = angular.module("ngApp",[]);
-		app.controller("indexCtrl",function($scope){
+		var app = angular.module("ngApp", []);
+		app.controller("indexCtrl", function($scope, $window, $interval) {
 			$scope.name = "laoyao";
-			sessionStorage.setItem("name",$scope.name)
+			$scope.num = 1;
+			$interval(function() {
+				$window.sessionStorage.setItem("name", $scope.num)
+				$scope.num++
+			}, 1000)
+
 		})
-		app.controller("index2Ctrl",function($scope){
-			$scope.name = sessionStorage.getItem("name")
+		app.controller("index2Ctrl", function($scope, $window) {
+			$scope.$watch(function() {
+				$scope.name = $window.sessionStorage.getItem("name")
+			})
 		})
 	</script>
+
 </html>

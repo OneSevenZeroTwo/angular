@@ -28,7 +28,7 @@
 				<h3 ng-click="change(3)" ng-class="{'active':page==3}">娱乐</h3>
 			</div>
 			<div ng-show="page==1">
-				1
+				<div ng-include="'page/1.html'"></div>
 			</div>
 			<div ng-show="page==2">
 				2
@@ -51,6 +51,9 @@
 			$scope.change = function(page){
 				$scope.page = page
 			}
+		})
+		app.controller("firstCtrl",function($scope){
+			$scope.name = "abc"
 		})
 	</script>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="headerCtrl">
+			<p>{{name}}</p>
+		</div>
+		<div ng-controller="containerCtrl">
+			<p>{{name}}</p>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		app.controller("headerCtrl", function($scope,$http) {
+			//exchange.name = "laoxie"
+			//$scope.name = exchange.name
+		})
+		app.controller("containerCtrl", function($scope) {
+			//$scope.name = exchange.name
+		})
+		app.service("exchange", function($http) {
+		})
+	</script>
+
+</html>

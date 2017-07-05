@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>
+	<script>
+		//构造函数方法
+		function person(name, age) {
+			this.name = name;
+			this.age = age;
+			return {
+				
+			}
+		}
+		new person();
+
+		//工厂函数方法
+		function person2(name, age) {
+			var obj = {},
+				obj.name = name;
+			obj.age = age;
+			return obj;
+		}
+		person2()
+	</script>
+
+</html>
