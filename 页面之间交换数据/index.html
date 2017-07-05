@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="headerCtrl">
+			<select ng-model="getData">
+				<option ng-repeat="arr in arrs" ng-value="{{arr.id}}">{{arr.name}}</option>
+			</select>
+			<a ng-href="detail.html?id={{getData}}">购买</a>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp",[]);
+		app.controller("headerCtrl",function($scope,$location){
+			$scope.name = "laoxie";
+			$scope.getData = 1;
+			$scope.arrs = [{
+				id:2,
+				name:"pc"
+			},{
+				id:3,
+				name:"mobile"
+			},{
+				id:1,
+				name:"abc"
+			}]
+		})
+	</script>
+</html>

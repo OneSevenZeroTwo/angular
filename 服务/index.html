@@ -14,7 +14,8 @@
 	<script src="angular.js"></script>
 	<script>
 		var app = angular.module("ngApp", []);
-		app.controller("indexCtrl", function($scope, $http) {
+		//$http $scope
+		app.controller("indexCtrl", function($http,$scope) {
 			//model
 			$scope.name = "laoxie";
 			$http({

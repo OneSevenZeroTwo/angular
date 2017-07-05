@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="headerCtrl">
+		</div>
+	</body>
+	<script src="angular1.5.9.js"></script>
+	<script>
+		var app = angular.module("ngApp",[]);
+		app.controller("headerCtrl",function($location){
+			console.log($location.$$search)
+			console.log($location.url())
+			//$location.search()
+		})
+	</script>
+</html>
