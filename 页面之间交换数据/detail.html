@@ -8,13 +8,12 @@
 		<div ng-controller="headerCtrl">
 		</div>
 	</body>
-	<script src="angular1.5.9.js"></script>
+	<script src="angular.js"></script>
 	<script>
 		var app = angular.module("ngApp",[]);
-		app.controller("headerCtrl",function($location){
-			console.log($location.$$search)
+		app.controller("headerCtrl",function($scope,$location){
+			console.log($location.search('id'))
 			console.log($location.url())
-			//$location.search()
 		})
 	</script>
 </html>
