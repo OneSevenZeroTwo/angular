@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--V-->
+		<div ng-controller="indexCtrl">
+			<p style="color: red;">currency</p>
+			<p>{{num|currency:"￥" :3}}</p>
+
+			<p style="color: red;">date</p>
+			<p>{{time|date: "yyyy/dd hh:mm:ss EEEE"}}</p>
+
+			<p style="color: red;">uppercase</p>
+			<p ng-bind="str|uppercase"></p>
+
+			<p style="color: red;">lowercase</p>
+			<p ng-bind="str|lowercase"></p>
+
+			<p style="color: red;">json</p>
+			<p>{{obj|json}}</p>
+
+			<p style="color: red;">number</p>
+			<p>{{num|number:2}}</p>
+
+			<p style="color: red;">orderBy</p>
+			<select ng-model="sortType">
+				<option value="id">id</option>
+				<option value="name">name</option>
+				<option value="skill">skill</option>
+			</select>
+			<button ng-click="isSort=!isSort">Ok</button>
+			<ul>
+				<li ng-repeat="arr in arrs|orderBy:sortType:isSort">{{arr.name}} {{arr.skill}}</li>
+			</ul>
+
+			<p style="color: red;">filter</p>
+			<input ng-model="name" />
+			<ul>
+				<li ng-repeat="arr in arrs|filter:{name:name}">{{arr.name}} {{arr.skill}}</li>
+			</ul>
+
+			<p style="color: red;">limitTo</p>
+
+			<p>{{str|limitTo:2:2}}</p>
+			<button ng-click="next()">下一页</button>
+			<ul>
+				<li ng-repeat="arr in arrs|limitTo:2:page">{{arr.name}} {{arr.skill}}</li>
+			</ul>
+
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		app.controller("indexCtrl", function($scope) {
+			//M
+			$scope.num = 123456
+
+			$scope.obj = {
+				name: "abc",
+				skill: "cba"
+			}
+
+			$scope.str = "WsWrTu"
+
+			$scope.time = 1499305273000
+
+			$scope.sortType = "id";
+			$scope.isSort = true;
+			$scope.arrs = [{
+				id: 5,
+				name: "laoyao",
+				skill: "ps"
+			}, {
+				id: 3,
+				name: "laoxie",
+				skill: "js"
+			}, {
+				id: 1,
+				name: "laolan",
+				skill: "css"
+			}, {
+				id: 6,
+				name: "laoye",
+				skill: "as"
+			}]
+			$scope.page = 0;
+			$scope.next = function() {
+				$scope.page += 2
+			}
+		})
+	</script>
+
+</html>
