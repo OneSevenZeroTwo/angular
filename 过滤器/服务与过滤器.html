@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{num}}</p>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		app.controller("indexCtrl", function($scope,tool) {
+			$scope.num = tool.add(8,9)
+			//$scope.num = $filter("currency")(123456, "￥")
+		})
+		app.service("tool", function($filter) {
+			return {
+				add: function(a, b) {
+					return $filter("currency")(a + b, "￥")
+				}
+			}
+		})
+	</script>
+
+</html>

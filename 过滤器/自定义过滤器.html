@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{name|ed}}</p>
+			<p>{{name|s}}</p>
+			<div ng-bind-html="html|htmled"></div>
+			<!--14K~18K-->
+			<p>{{price.lowerPrice}}K~{{price.upperPrice}}K</p>
+			<p>{{price|priced}}</p>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		app.controller("indexCtrl", function($scope, priced) {
+			$scope.name = "xiaoxie";
+			$scope.html = "<p>123<span>456</span></p>";
+			$scope.price = {
+				lowerPrice: 14,
+				upperPrice: 16
+			}
+			priced($scope.price)
+		})
+		console.log(app)
+		app.filter("ed", function() {
+			return function(input) {
+				//把进来的数据处理成新的数据
+				return input + "ed"
+			}
+		})
+		app.filter("s", function() {
+			return function(input) {
+				//把进来的数据处理成新的数据
+				return input + "s"
+			}
+		})
+		app.filter("htmled", function($sce) {
+			return function(input) {
+				//把进来的数据处理成新的数据
+				return $sce.trustAsHtml(input)
+			}
+		})
+		app.filter("priced", function() {
+			return function(input) {
+				//把进来的数据处理成新的数据
+				return input.lowerPrice + "K~" + input.upperPrice + "K"
+			}
+		})
+		app.service("priced", function() {
+				return function(input) {
+					return input.lowerPrice + "K~" + input.upperPrice + "K"
+				}
+			})
+			/*app.service
+			app.value*/
+	</script>
+
+</html>

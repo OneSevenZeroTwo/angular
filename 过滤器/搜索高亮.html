@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<input ng-model="search" />
+			<div ng-bind-html="html|highlight:search|htmled"></div>
+		</div>
+
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		app.controller("indexCtrl", function($scope) {
+			$scope.search = "";
+			$scope.html = "那一年6.9，我依稀记得愚蠢的老谢挽着潇洒的老蓝的手，出现在天安门的某个角落里面，他对她说了一句you jump i jump"
+		})
+		app.filter("htmled", function($sce) {
+			return function(input) {
+				//把进来的数据处理成新的数据
+				return $sce.trustAsHtml(input)
+			}
+		})
+		app.filter("highlight", function() {
+			return function(input, search) {
+				console.log(search)
+				console.log(input)
+				var arr = input.split(search);
+				var output = arr.join("<span style='color:red'>" + search + "</span>")
+				return output;
+			}
+		})
+	</script>
+
+</html>
