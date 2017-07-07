@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="indexCtrl">
+		<div ng-color="red" name="abc">1</div>
+		<div ng-color="blue" name="abc">2</div>
+		<div ng-clickclick="true" name="abc">2</div>
+		<!--<ng-color name="abc"></ng-color>-->
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		app.controller("indexCtrl", function($scope) {})
+		app.directive("ngColor", function() {
+			return {
+				link:function(scope,ele,attr){
+					//console.log(attr.ngColor)
+					ele.css("color",attr.ngColor)
+				}
+			}
+		})
+	</script>
+</html>

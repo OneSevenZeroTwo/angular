@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<p ng-touch>手指滑动</p>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		app.controller("indexCtrl", function() {
+
+		})
+		app.directive("ngTouch", function($document) {
+			return {
+				link: function(scope, ele, attr) {
+					var xStart, yStart, xEnd, yEnd;
+					ele.on("touchstart", function(data) {
+							console.log("牵手");
+							//console.log(data);
+							xStart = data.changedTouches[0].pageX
+							yStart = data.changedTouches[0].pageY
+								//console.log(xStart)
+								//console.log(yStart)
+						})
+						/*$document[0].addEventListener("touchmove", function(data) {
+							console.log(data);
+						})*/
+					ele.on("touchend", function(data) {
+						console.log("放手");
+						//console.log(data);
+						xEnd = data.changedTouches[0].pageX
+						yEnd = data.changedTouches[0].pageY
+						if(Math.abs(xStart - xEnd) >= Math.abs(yStart - yEnd)) {
+							//非左即右
+							if(xStart >= xEnd) {
+								console.log("左边")
+							} else {
+								console.log("右边")
+							}
+						} else {
+							//非上即下
+							if(yStart >= yEnd) {
+								console.log("上边")
+							} else {
+								console.log("下边")
+							}
+						}
+						//console.log(xEnd)
+						//console.log(yEnd)
+					})
+				}
+			}
+		})
+	</script>
+
+</html>

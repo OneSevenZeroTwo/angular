@@ -1,0 +1,186 @@
+/*index_top*/
+.bs_top i,.bs_top a,.call{color:#666;font-size:12px;display: inline-block;line-height: 35px;}
+.logo_left .p1,.nav_main i:after,.basebase a,.nav_main i .basebase,.con1 li,.con2_content a,.con4 li,.b_right a,.con5 li,.slideBox_jy a img,.con7_video a,.word_list161128 a,.con8_video span,.con9 a span,.con10_list li img,.con11_bottom div,.con3_tab li:before,.con3_tab li p,.con10_list a,.nav_main i .hover,.slideBox_jy a,.con11-wf li,.con10_list li,.more:before,.more,.con12_content a{transition:0.3s;-webkit-transition:0.3s;-moz-transition:0.3s;-ms-transition:0.3s;-o-transition:0.3s;}
+a,u{text-decoration: none;}
+.clear{zoom:1;}
+.clear:after{ content:""; display:block; clear:both;}
+.index_top{margin-bottom:5px;}
+.index_top .base{width:1100px;margin:0 auto;}
+.bs_top{height:35px;}
+.bs_top i{float: left;}
+.bs_top .call{float:right;}
+.bs_top a{padding:0 8px;}
+.bs_top a:nth-last-child(1){padding-right:0;}
+.bs_top a:hover{color:#3688ff;}
+.logo{background: #ececec;padding:24px 0;}
+.logo_left{float:left;}
+.logo_left img{float:left;}
+.logo_left .xq{float:left;border-left:1px solid #afafaf;height:47px;margin:0px 0 0 5px;padding:0 0 0 8px; display:inline; position: relative;top:3px;}
+.logo_left .xq_tab{position: relative;cursor:pointer;width:65px;z-index:1000;}
+.logo_left .p1{width:0px; height:0px;background: #fff;overflow:hidden;border:1px solid #fff;}
+.logo_left .p2{width:318px;}
+.logo_left .xq_tab:hover .p1{width:318px;height:115px;border:1px solid #dfdfdf;}
+.logo_left i{font-size:20px;line-height: 25px; color:#434343;display:inline-block;}
+.logo_left .xq_tab em{color:#3688ff;font-size:12px;display:inline-block;margin:0;line-height: 22px;position: relative;}
+.logo_left em:after{
+    content: "";
+    position: absolute;
+    display: block;
+    right: -15px;
+    top: 6px;
+    width: 11px;
+    height: 11px;
+    background: url(../img/index2017/logo_xl.jpg) no-repeat center top;
+
+}
+.logo_left span{display:inline-block;font-size:14px; color:#000; margin-left:20px; padding-top:10px;}
+.logo_left p{margin-left:20px;}
+.logo_left a{color:#000;font-size:14px;}
+.logo_left a:hover{color:#3688ff;}
+.logo_right{float:right;margin-top:12px;}
+.nav_main{height:50px; background: #3688ff;}
+.nav_main .nav{display:block;float:left;line-height: 50px;padding:0 34px;font-size:14px; color:#fff;position: relative;cursor:pointer;margin-right:1px;}
+.nav_main .nav:nth-last-child(1){float:right;margin-right:0;}
+.nav_main .nav:hover{background: #38adea}
+.nav div{position: absolute;top:50px;background:#fff;text-align: center;width:100%;left:-1px;height:0px;overflow:hidden;}
+.nav a{padding:0;width:90px;display:block;margin:0 auto;line-height:35px;font-size:14px; color:#000;border-bottom:1px solid #dfdfdf;}
+.nav_main i{position: relative;z-index:999;}
+.nav_main i:after{
+    position: absolute;
+    display: block;
+    font-size:30px;
+    right: 28px;
+    top:9px;
+    width: 5px;
+    height: 15px;
+    content: "ˇ";
+}
+.nav a:hover{color:#3688ff;}
+.nav_main i:hover{background: #38adea;}
+.nav_main i:hover:after{right: 45%;top:43px;-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-ms-transform:rotate(180deg);-o-transform:rotate(180deg);}
+.nav_main i:hover div{height:auto;border:1px solid #38adea;border-top:none;}
+
+.kcpx div a{border:none;width:99px;margin-top:15px;}
+.kcpx .basebase{width:1098px;left:-97px;top:50px;}
+.basebase a{display:block;float: left;}
+.basebase u{display:block;}
+.nav_main i:nth-child(4):hover .hover{height:72px;}
+.nav_main i:nth-child(5):hover .hover{height:108px;}
+.nav_main i:nth-child(7):hover .hover{height:108px;}
+.nav_main i:hover .basebase{height:130px;border:1px solid #38adea;border-top:none;}
+.basebase a:hover{-webkit-transform:translateY(-4px);-moz-transform:translateY(-4px);-ms-transform:translateY(-4px);-o-transform:translateY(-4px)}
+/*底部*/
+.bottom{border-top:1px solid #d3d3d3;padding-top:24px;background: url(../img/index2017/b_bg.jpg) repeat-x bottom;}
+.bottom .base{width:1192px;}
+.bottom .b_logo{margin-bottom: 30px;}
+.bottom li{float:left;margin-right:90px;}
+.bottom h6{font-size:16px; color:#5c5c5c;line-height: 16px;margin-bottom:16px;}
+.bottom li p{margin-bottom:15px;}
+.bottom li a{font-size:14px; color:#8a8a8a;}
+.bottom li a:hover{color:#3688ff;}
+.bottom li:nth-child(4){margin-right:0;}
+.bottom li:nth-child(5){float:right;margin-right:0;}
+.bottom ul{padding-bottom:30px;}
+.b_wx img{margin-bottom:10px;}
+.b_wx div{float:left; text-align: center;width:126px;font-size:14px;color:#5c5c5c;margin-right:10px;}
+.b_address{line-height: 26px;font-size:12px;color:#5c5c5c; text-align: center;border-top:1px dashed #cacaca;padding:15px 0;}
+
+/*bottom*/
+.bottom_part2{
+    background:#276dc3;
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+.c_base{width: 1100px;margin:0 auto; position: relative;}
+.c_bot_lt{width: 1100px;float: left; position: relative;z-index: 10;}
+.c_bot_rg{float: right;position: absolute;top:5px;right:0;}
+
+.c_bot_lt_hd a{
+    display: inline-block;
+    width:65px;
+    height:95px;
+    line-height: 95px;
+    margin-right: 16px;
+    color:#fff;
+    text-align: center;
+    text-decoration:none;
+    font-size: 20px;
+    font-weight: 100;
+    padding-bottom: 10px;
+    font-family:"Microsoft YaHei";
+ }
+ .c_bot_lt_hd a:nth-child(13){
+    margin-right: 0px;
+ }
+.c_bot_lt_hd a.active{
+    background:url(http://www.mobiletrain.org/images/index/bottom_part2.png) no-repeat center top;
+}
+.c_bot_lt ul{padding:1% 0 0;}
+.c_bot_lt li{color:#fff;line-height:200%;display:none; font-size: 16px;text-align: left;font-family: "Microsoft YaHei";font-weight: 100;}
+.c_bot_rg li{ float:left; font-size:13px; text-align:center;color:#fff; line-height:18px;padding-top: 35%}
+.c_bot_rg li p{ padding-top:5px;}
+
+strong{
+    font-size: 18px;
+    font-weight: 900;
+    color:#edba11;
+    line-height:56px;
+}
+.bottom_part3{
+    width:100%;
+    background:#143257;
+    box-sizing:border-box;
+    padding:5px 0px 11px;
+
+}
+
+.c_footer{
+    text-align:center;
+    font-size:13px;
+    line-height:28px;
+    color:#AFAFAF;
+    font-family: "Microsoft YaHei";
+ }
+.c_footer a{padding:0 2px;}
+.c_footer .c_footer_nav a:hover{
+    text-decoration:underline;
+}
+.c_footer_nav{
+    width:100%;
+    text-align: center;
+}
+.c_footer_nav a{
+    font-size:13px;
+    padding:4px;color:#fff;
+}
+.c_footer_nav a:hover{
+    padding:0 4px;
+    color:#ffda0c;
+}
+.c_footer p a{color:#AFAFAF;}
+.c_footer p{font-size:12px;line-height: 14px;}
+.c_bot_lt ul li:nth-child(1){display:list-item;}
+.bottom_part3 .base{padding:0;}
+.base_fixed{background:rgba(0,0,0,0);width:65px;font-family:微软雅黑;position:absolute;z-index:100000;left:0;}.base_fixed a{display:block;width:65px;height:28px;border:1px solid #e3e3e3;border-top:none;text-align:center;padding-top:40px;font-size:12px;line-height:20px;background:#fff url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat 20px 15px;color:#000000;text-decoration:none;}.base_fixed .f_a1{background:#f1801b url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat 20px 15px;color:#fff;border-color:#f1801b;border-bottom:1px solid #e3e3e3;}.base_fixed .f_a2{background:#fff url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat 20px -49px;}.base_fixed .f_a3{background:#fff url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat 20px -108px;}.base_fixed .f_a4{background:#fff url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat 20px -168px;}.base_fixed .f_a7{background:#fff url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat 20px -368px;}.base_fixed .f_a7:hover{background:#f1801b url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat -47px -368px;color:#fff;border-color:#f1801b;}.base_fixed .f_a5{background:#fff url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat 20px -228px;}.base_fixed .f_a6{background:#fff url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat 20px -288px;position:relative;-webkit-transition:0.3s;}.base_fixed .f_a2:hover{background:#f1801b url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat -44px -49px;color:#fff;border-color:#f1801b;}.base_fixed .f_a3:hover{background:#f1801b url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat -44px -108px;color:#fff;border-color:#f1801b;}.base_fixed .f_a4:hover{background:#f1801b url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat -44px -168px;color:#fff;border-color:#f1801b;}.base_fixed .f_a5:hover{background:#f1801b url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat -44px -228px;color:#fff;border-color:#f1801b;}.base_fixed .f_a6:hover{background:#f1801b url(http://www.mobiletrain.org/images/b_f_ico.png) no-repeat -44px -288px;color:#fff;border-color:#f1801b;}.base_fixed .f_a6:hover i{width:150px;}.base_fixed i{display:inline-block;background:#f1801b;position:absolute;font-size:14px;font-weight:bold;width:150px;text-align:center;height:69px;line-height:69px;left:70px;top:0;color:#fff;font-style:normal;overflow:hidden;width:0;-webkit-transition:0.3s;width:0;}
+
+/*放大镜*/
+.big17410{cursor:url(/images/+.ico),auto;}
+.big17410 img{position: relative;z-index: 1000;}
+/*公共-周末班*/
+.base-bk-big{background: #fff;}
+.base-bk-17520{padding:60px 0;}
+.base-bk-17520 h4{font-size:48px;line-height: 48px;color:#000;margin-bottom:15px;font-weight: 100;}
+.base-bk-17520 h4,.base-bk-17520 p,.base-bk-17520 .link17520{text-align:center;}
+.base-bk-17520 p{color:#4a4a4a;font-size:24px; line-height:36px;margin-bottom:40px;}
+.base-bk-17520 p i,.base-bk-17520 li em i{color:#e24242;font-weight:bold;}
+.base-bk-17520 a.base-link-17520{display: inline-block;padding:15px 50px;color:#fff;background: #f34848;border-radius: 30px;font-size:20px;}
+.base-bk-17520 a.base-link-17520:hover{background:#df4242;}
+.base-bk-17520 ul{margin-bottom:40px;overflow: hidden;}
+.base-bk-17520 li{padding:15px 0 0 0; text-align: center;float:left;width:212px;border:1px solid #ccc;margin-right:7px;}
+.base-bk-17520 li:nth-last-child(1){margin-right:0;}
+.base-bk-17520 li:hover{border-color:#f34848;}
+.base-bk-17520 li img{margin-bottom:20px;}
+.base-bk-17520 li h2{margin-bottom:12px;font-size:16px;color:#5c5c5c;}
+.base-bk-17520 li em{display: inline-block;text-align: left;font-size:14px; color:#898989; line-height: 22px;margin-bottom:25px;}
+.base-bk-17520 li a{display:block;border-top:1px solid #ccc;padding:10px 0;font-size:16px; color:#f34848;}
+.base-bk-17520 li a:hover{text-decoration: underline;}

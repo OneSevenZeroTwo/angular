@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<!--E-->
+			<!--组件-->
+			<!--<ng-header></ng-header>-->
+			<!--A-->
+			<!--指令-->
+			<!--<div ng-header></div>-->
+			<!--C-->
+			<!--指令-->
+			<!--<div class="ng-header"></div>-->
+			<ng-header>
+				<p>新闻</p>
+			</ng-header>
+			
+			<ng-header>
+				<p>娱乐头条</p>
+			</ng-header>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		console.log(app);
+		var indexCtrl = function($scope) {
+			$scope.name = "laoxie"
+		}
+		app.controller("indexCtrl", indexCtrl)
+		app.directive("ngHeader", function() {
+			return {
+				restrict: "ECMA",
+				replace: false,
+				//组件支持嵌入
+				transclude: true,
+				controller: function($scope, $http) {
+					$scope.name = "laoyao"
+				},
+				template: `
+					<div>
+						<header ng-transclude></header>
+						<p>Hello {{name}}</p>
+					</div>
+				`
+			}
+		})
+	</script>
+
+</html>

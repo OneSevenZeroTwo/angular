@@ -1,3 +1,3 @@
 <?php
-	echo "abc"
+	echo '{"arrs":["a","b","c"]}';
 ?>

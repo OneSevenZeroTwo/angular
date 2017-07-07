@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body ng-controller="indexCtrl">
+		<xheader color="red" size="30" isShowLoadMore="loadMore"></xheader>
+	</body>
+	<script src="jquery.js"></script>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		app.controller("indexCtrl", function($scope) {})
+		app.directive("xheader", function($http) {
+			return {
+				//View
+				template: `<div>
+					<ul>
+						<li ng-repeat="arr in arrs track by $index">{{arr}}</li>
+					</ul>
+					<button ng-click="loadMore()">{{isShow}}</button>
+				</div>
+				`,
+				link: function(scope, ele, attr) {
+					//jQlite
+					//Model
+					//scope
+					scope.arrs = [];
+					scope.loadMore = function() {
+						$http({
+							method: "GET",
+							url: "http://localhost:81/1702/angular/test.php"
+						}).then(function(data) {
+							console.log(data)
+							scope.arrs = scope.arrs.concat(data.data.arrs)
+						})
+					}
+					scope.loadMore();
+					scope.skill = "PS"
+					console.log(scope)
+					
+					
+					//ele
+					console.log(ele)
+					
+					ele.on("click",function(){
+						alert("hello")
+					})
+					
+					/*ele.css("color","red")
+					ele.addClass("xxxxxxxxasdasdasd")*/
+					//$(ele).addClass("asdsdfnsdkfjbsdjf")
+					
+					
+					//attr
+					console.log(attr.isshowloadmore)
+					scope.isShow = attr.isshowloadmore
+					ele.css("color",attr.color)
+					ele.css("fontSize",attr.size+"px")
+					console.log(attr)
+				}
+			}
+		})
+	</script>
+
+</html>
