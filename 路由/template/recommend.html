@@ -1,0 +1,9 @@
+<div ng-controller="indexCtrl">
+	<xheader></xheader>
+	<a href="#!/index">index</a>
+	<a href="#!/home">home</a>
+	<p>推荐页面</p>
+	<ul>
+		<li ng-repeat="arr in arrs"><a ng-href="#!/detail?id={{arr.id}}">{{arr.title}}</a></li>
+	</ul>
+</div>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="routeApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-view="">
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script src="js/angular-route.js"></script>
+	<script>
+		var app = angular.module("routeApp", ["controllers", "ngRoute", "routes", "services", "filters", "directives"]);
+		var services = angular.module("services", []);
+		services.service("tool", function() {
+			return {
+				add: function(a, b) {
+					return a + b
+				}
+			}
+		})
+
+		var filters = angular.module("filters", []);
+		filters.filter("html", function($sce) {
+			return function(input) {
+				return $sce.trustAsHtml(input)
+			}
+		})
+
+		var directives = angular.module("directives", []);
+		directives.directive("xheader", function() {
+			return {
+				template: "<header>今日头条</header>"
+			}
+		})
+
+		var controllers = angular.module("controllers", [])
+		controllers.controller("indexCtrl", function($scope) {
+			$scope.text = "index页面"
+			$scope.arrs = [{
+				id:3,
+				title:"aaaaa"
+			},{
+				id:4,
+				title:"adasdad"
+			},{
+				id:1,
+				title:"gdkjgk"
+			}]
+		})
+
+		var routes = angular.module("routes", [])
+			//配置路由
+		routes.config(function($routeProvider) {
+			$routeProvider.when("/index", {
+				templateUrl: "template/recommend.html"
+			}).when("/home", {
+				templateUrl: "template/video.html"
+			}).when("/detail", {
+				templateUrl: "template/detail.html"
+			})
+		})
+	</script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		header{
+			color: white;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			background-color: red;
+		}
+	</style>
+
+</html>
