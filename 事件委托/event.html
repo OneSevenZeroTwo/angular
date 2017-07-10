@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="indexCtrl">
+		<ul>
+			<li ng-repeat="a in arr" ng-click="Click($index)">{{a}}</li> 
+		</ul>
+		
+		<ul ng-click="Click2($event)">
+			<li ng-repeat="a in arr">{{a}}</li> 
+		</ul>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		app.controller("indexCtrl", function($scope) {
+			$scope.arr = ["a", "b", "c"];
+			$scope.Click = function(num){
+				console.log(num)
+			}
+			
+			$scope.Click2 = function(e){
+				console.log(e.target)
+				angular.element(e.target).css("color","red")
+			}
+		})
+	</script>
+</html>
