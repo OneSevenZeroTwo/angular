@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html ng-app="routeApp">
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
+
 	<body>
 		<div ng-view="">
 		</div>
@@ -39,15 +41,18 @@
 		controllers.controller("indexCtrl", function($scope) {
 			$scope.text = "index页面"
 			$scope.arrs = [{
-				id:3,
-				title:"aaaaa"
-			},{
-				id:4,
-				title:"adasdad"
-			},{
-				id:1,
-				title:"gdkjgk"
+				id: 3,
+				title: "aaaaa"
+			}, {
+				id: 4,
+				title: "adasdad"
+			}, {
+				id: 1,
+				title: "gdkjgk"
 			}]
+		}).controller("detailCtrl", function($scope,$routeParams) {
+			$scope.text = "详情页";
+			console.log($routeParams)
 		})
 
 		var routes = angular.module("routes", [])
@@ -57,17 +62,27 @@
 				templateUrl: "template/recommend.html"
 			}).when("/home", {
 				templateUrl: "template/video.html"
-			}).when("/detail", {
+			}).when("/detail/:id/:skill", {
+				//C M
+				controller:"detailCtrl",
+				//V
 				templateUrl: "template/detail.html"
+			}).when("/detaill", {
+				controller:"detaillCtrl",
+				templateUrl: "template/detail.html"
+			}).otherwise({
+				//默认重定向的路由路径
+				redirectTo: '/index'
 			})
 		})
 	</script>
 	<style>
-		*{
+		* {
 			margin: 0;
 			padding: 0;
 		}
-		header{
+		
+		header {
 			color: white;
 			height: 50px;
 			line-height: 50px;

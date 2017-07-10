@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="uirouterApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="#!/index/a">angular</a>
+		<a href="#!/home/chajian">jquery</a>
+		<div ui-view></div>
+	</body>
+	<script src="../js/angular.js"></script>
+	<script src="../js/angular-ui-router.js"></script>
+	<script>
+		var app = angular.module("uirouterApp",["ui.router"]);
+		app.config(function($stateProvider){
+			$stateProvider.state("index",{
+				url:"/index",
+				templateUrl:"template/angular.html"
+			})
+			
+			.state("index.aaaaa",{
+				url:"/a",
+				template:"<p>这是路由知识</p>"
+			})
+			
+			.state("index.bbbbb",{
+				url:"/b",
+				template:"<div><p>这是服务知识</p><div ui-view></div></div>"
+			})
+			
+			.state("index.bbbbb.ccccc",{
+				url:"/c",
+				template:"<p>这是服务知识的其他部分吧</p>"
+			})
+			
+			.state("home",{
+				url:"/home",
+				templateUrl:"template/jquery.html"
+			})
+			
+			//表达关系的
+			.state("home.abcd",{
+				url:"/xuanzeqi",
+				template:"<p>选择器知识</p>"
+			})
+			
+			.state("home.dnje",{
+				url:"/chajian",
+				template:"<p>插件的知识</p>"
+			})
+		})
+	</script>
+</html>
