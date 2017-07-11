@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../css/ionic.css" />
+
+	<body ng-controller="indexCtrl">
+		<button ng-click="show()">显示</button>
+	</body>
+	<script src="../js/ionic.bundle.js"></script>
+	<script>
+		var app = angular.module("ionicApp", ["ionic"]);
+		app.controller("indexCtrl", function($scope, $ionicModal) {
+			$scope.name = "";
+			console.log($ionicModal)
+			$ionicModal.fromTemplateUrl('template/modal.html', {
+				scope: $scope,
+				animation: 'slide-in-up'
+			}).then(function(modal) {
+				$scope.modal = modal;
+			});
+			
+			$scope.show = function(){
+				$scope.modal.show()
+			}
+			
+			$scope.hide = function(){
+				$scope.modal.hide()
+			}
+		})
+	</script>
+
+</html>

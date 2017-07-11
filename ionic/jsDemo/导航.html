@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../css/ionic.css" />
+	<body>
+		<a href="#/index">index</a>
+		<a href="#/music">music</a>
+		<!--<div ui-view></div>-->
+		<ion-nav-view></ion-nav-view>
+	</body>
+	<script src="../js/ionic.bundle.js"></script>
+	<script>
+		var app = angular.module("ionicApp", ["ionic"]);
+		app.config(function($stateProvider) {
+			$stateProvider
+				.state('index', {
+					url: '/index',
+					template: '<ion-view><p>index</p></ion-view>'
+				})
+				.state('music', {
+					url: '/music',
+					template: '<p>music</p>'
+				});
+		});
+	</script>
+
+</html>

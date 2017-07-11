@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../css/ionic.css" />
+
+	<body>
+		<ion-list show-delete="false" show-reorder="true">
+			<ion-item>
+				1
+				<ion-option-button class="button-calm">
+					分享
+				</ion-option-button>
+				<ion-option-button class="button-info">
+					编辑
+				</ion-option-button>
+				<ion-reorder-button class="ion-navicon" on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+				</ion-reorder-button>
+			</ion-item>
+			<ion-item>2
+				<ion-delete-button class="ion-minus-circled">
+				</ion-delete-button>
+				<ion-reorder-button class="ion-navicon" on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+				</ion-reorder-button>
+			</ion-item>
+			<ion-item>3
+				<ion-reorder-button class="ion-navicon" on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+				</ion-reorder-button>
+			</ion-item>
+		</ion-list>
+	</body>
+	<script src="../js/ionic.bundle.js"></script>
+	<script>
+		var app = angular.module("ionicApp", ["ionic"]);
+	</script>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../css/ionic.css" />
+
+	<body>
+		<ion-checkbox ng-model="isChecked">复选框标签</ion-checkbox>
+
+		<ion-radio ng-model="choice" ng-value="A">Choose A</ion-radio>
+		<ion-radio ng-model="choice" ng-value="B">Choose B</ion-radio>
+		<ion-radio ng-model="choice" ng-value="C">Choose C</ion-radio>
+	
+		<ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm">Airplane Mode</ion-toggle>
+	</body>
+	<script src="../js/ionic.bundle.js"></script>
+	<script>
+		var app = angular.module("ionicApp", ["ionic"]);
+	</script>
+
+</html>

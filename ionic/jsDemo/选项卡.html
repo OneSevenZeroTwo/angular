@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../css/ionic.css" />
+
+	<body>
+		<ion-tabs class="tabs-positive tabs-icon-only">
+			<ion-tab title="首页" icon-on="ion-heart" icon-off="ion-heart-broken">
+				<!-- 标签 1 内容 -->
+			</ion-tab>
+			<ion-tab title="关于" icon-on="ion-woman" icon-off="ion-man">
+				<!-- 标签 2 内容 -->
+			</ion-tab>
+			<ion-tab title="设置" icon-on="ion-happy-outline" icon-off="ion-sad">
+				<!-- 标签 3 内容 -->
+			</ion-tab>
+		</ion-tabs>
+	</body>
+	<script src="../js/ionic.bundle.js"></script>
+	<script>
+		var app = angular.module("ionicApp", ["ionic"]);
+	</script>
+
+</html>

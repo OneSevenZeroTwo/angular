@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../css/ionic.css" />
+
+	<body ng-controller="indexCtrl">
+	</body>
+	<script src="../js/ionic.bundle.js"></script>
+	<script>
+		var app = angular.module("ionicApp", ["ionic"]);
+		app.controller("indexCtrl", function($scope, $ionicActionSheet) {
+			$ionicActionSheet.show({
+				buttons: [{
+					text: '<b>Share</b> This'
+				}, {
+					text: 'Move'
+				}, ],
+			})
+		})
+	</script>
+
+</html>

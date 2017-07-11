@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../css/ionic.css" />
+
+	<body ng-controller="indexCtrl">
+		<ion-side-menus>
+			<!-- 中间内容 -->
+			<ion-side-menu-content>
+				<ion-header-bar align-title="center" class="bar-positive">
+					<div class="buttons">
+						<button class="button" ng-click="doSomething()">Left Button</button>
+					</div>
+					<h1 class="title">Title!</h1>
+					<div class="buttons">
+						<button class="button">Right Button</button>
+					</div>
+				</ion-header-bar>
+				<ion-content>
+					<ion-refresher pulling-text="" pulling-icon="ion-social-apple" on-refresh="doRefresh()">
+					</ion-refresher>
+					<div class="list">
+						<a ng-repeat="n in news" class="item item-avatar" href="#">
+							<img ng-src="{{n.image_url_small}}">
+							<h2>{{n.title}}</h2>
+							<p>{{n.summary}}</p>
+						</a>
+					</div>
+				</ion-content>
+			</ion-side-menu-content>
+
+			<!-- 左侧菜单 -->
+			<ion-side-menu side="left">
+				<div class="bar bar-header">
+      <div class="h1 title">图标列表</div>
+    </div>
+    
+    <div class="content has-header ionic-pseudo">
+
+      <div class="list">
+
+        <a class="item item-icon-left" href="#" menu-close>
+          <i class="icon ion-email"></i>
+          Check mail
+        </a>
+
+        <a class="item item-icon-left item-icon-right" href="#">
+          <i class="icon ion-chatbubble-working"></i>
+          Call Ma
+          <i class="icon ion-ios-telephone-outline"></i>
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-mic-a"></i>
+          Record album
+          <span class="item-note">
+            Grammy
+          </span>
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-person-stalker"></i>
+          Friends
+          <span class="badge badge-assertive">0</span>
+        </a>
+
+        <div class="item item-divider">
+          Activities
+        </div>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-beaker"></i>
+          Breaking Bad
+          <span class="item-note">
+            Blue, yellow, pink
+          </span>
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-music-note"></i>
+          Music
+          <span class="item-note">
+            JT
+          </span>
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-ios-game-controller-b"></i>
+          Games
+          <span class="item-note">
+            Super Mario
+          </span>
+        </a>
+
+        <a class="item item-icon-left item-icon-right" href="#">
+          <i class="icon ion-bag"></i>
+          Shopping
+          <i class="icon ion-arrow-right-c"></i>
+        </a>
+
+      </div>
+
+    </div>
+				<ion-tabs class="tabs-positive tabs-icon-only">
+			<ion-tab title="首页" icon-on="ion-heart" icon-off="ion-heart-broken">
+				<!-- 标签 1 内容 -->
+			</ion-tab>
+			<ion-tab title="关于" icon-on="ion-woman" icon-off="ion-man">
+				<!-- 标签 2 内容 -->
+			</ion-tab>
+			<ion-tab title="设置" icon-on="ion-happy-outline" icon-off="ion-sad">
+				<!-- 标签 3 内容 -->
+			</ion-tab>
+		</ion-tabs>
+			</ion-side-menu>
+
+			<!-- 右侧菜单 -->
+			<ion-side-menu side="right">
+				right
+			</ion-side-menu>
+		</ion-side-menus>
+	</body>
+	<script src="../js/ionic.bundle.js"></script>
+	<script>
+		var app = angular.module("ionicApp", ["ionic"]);
+		app.controller("indexCtrl", function($scope, $http) {
+			$scope.news;
+			$scope.doRefresh = function() {
+				$http({
+					method: "GET",
+					url: "http://localhost:6789"
+				}).then(function(data) {
+					console.log(data)
+					$scope.news = data.data.list
+					$scope.$broadcast('scroll.refreshComplete');
+				})
+			}
+			$scope.doRefresh()
+		})
+	</script>
+	
+
+</html>
