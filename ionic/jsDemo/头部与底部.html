@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../css/ionic.css" />
+
+	<body>
+		<ion-header-bar align-title="center" class="bar-positive">
+			<div class="buttons">
+				<button class="button" ng-click="doSomething()">Left Button</button>
+			</div>
+			<h1 class="title">Title!</h1>
+			<div class="buttons">
+				<button class="button">Right Button</button>
+			</div>
+		</ion-header-bar>
+		<ion-footer-bar align-title="left" class="bar-assertive">
+			<div class="buttons">
+				<button class="button">Left Button</button>
+			</div>
+			<h1 class="title">Title!</h1>
+			<div class="buttons" ng-click="doSomething()">
+				<button class="button">Right Button</button>
+			</div>
+		</ion-footer-bar>
+	</body>
+	<script src="../js/ionic.bundle.js"></script>
+	<script>
+		var app = angular.module("ionicApp", ["ionic"]);
+	</script>
+
+</html>

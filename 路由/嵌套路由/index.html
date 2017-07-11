@@ -49,6 +49,16 @@
 				url:"/chajian",
 				template:"<p>插件的知识</p>"
 			})
+			
+			
+			.state("detail",{
+				url:"/detail/:id",
+				controller:"detailCtrl",
+				templateUrl:"template/detail.html"
+			})
+		})
+		app.controller("detailCtrl",function($state){
+			console.log($state)
 		})
 	</script>
 </html>
