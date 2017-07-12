@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body ng-controller="indexCtrl">
+		<a href="#!/index">index</a>
+		<a href="#!/home">home</a>
+		<p ng-swipe-left="left()">左</p>
+		<p class="rotate" ng-if="isshow">Hello World</p>
+		<button ng-click="toggle()">Ok</button>
+		
+		<div style="margin-top: 50px;" ng-view class="rotate"></div>
+	</body>
+	<style>
+		.rotate {
+			-webkit-animation-duration: 1s;
+		}
+		
+		.ng-leave.rotate {
+			-webkit-animation-name: rotate-leave;
+		}
+		
+		.ng-enter.rotate {
+			-webkit-animation-name: rotate-enter;
+		}
+		
+		@-webkit-keyframes rotate-leave {
+			0% {
+				-webkit-transform-origin: center center;
+				-webkit-transform: rotate(0);
+				opacity: 1;
+			}
+			100% {
+				-webkit-transform-origin: center center;
+				-webkit-transform: rotate(-180deg);
+				opacity: 0;
+			}
+		}
+		
+		@-webkit-keyframes rotate-enter {
+			0% {
+				-webkit-transform-origin: center center;
+				-webkit-transform: rotate(-180deg);
+				opacity: 0;
+			}
+			100% {
+				-webkit-transform-origin: center center;
+				-webkit-transform: rotate(-360deg);
+				opacity: 1;
+			}
+		}
+	</style>
+	<script src="angular.js"></script>
+	<script src="cookie.js"></script>
+	<script src="animate.js"></script>
+	<script src="route.js"></script>
+	<script src="touch.js"></script>
+	<script>
+		var app = angular.module("ngApp", ["ngRoute", "ngCookies", "ngAnimate","ngTouch"]);
+		app.config(function($routeProvider) {
+			$routeProvider.when("/index", {
+				template: "<p>index</p>"
+			}).when("/home", {
+				template: "<p>home</p>"
+			})
+		})
+		app.controller("indexCtrl", function($scope, $cookieStore,$touch) {
+			$scope.isshow = true;
+			console.log($cookieStore)
+			$cookieStore.put("name", "aaaaaaaaa")
+			console.log($cookieStore.get("name"))
+			
+			$scope.toggle = function(){
+				$scope.isshow = !$scope.isshow
+			}
+			console.log($touch)
+			$scope.left = function(){
+				console.log("LLLLL")
+			}
+		})
+	</script>
+
+</html>

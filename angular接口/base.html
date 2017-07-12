@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body ng-controller="indexCtrl">
+		<p>112233</p>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		console.log(angular)
+		var app = angular.module("ngApp", []);
+		app.config(function() {
+
+		})
+		app.controller("indexCtrl", function() {
+			console.log(angular.equals(1, 2))
+			console.log(angular.merge({
+				name: "laoxie"
+			}, {
+				skill: "ps"
+			}))
+			angular.forEach(['a', 'b', 'c'], function(value, key) {
+				console.log(value)
+			})
+			console.log(angular.isArray(['a','b','c']))
+			angular.element(document.querySelector("p")).css("color","red")
+		})
+		angular.bootstrap(document.body,["ngApp"])
+	</script>
+
+</html>
