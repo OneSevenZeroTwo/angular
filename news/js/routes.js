@@ -4,16 +4,17 @@
 	routes.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 		$stateProvider.state("index", {
 			url: "/index",
-			templateUrl: "template/index.html"
+			templateUrl: "template/index.html",
 		}).state("index.home", {
 			url: "/home",
-			templateUrl: "template/home.html"
+			templateUrl: "template/home.html",
 		}).state("index.contacts", {
 			url: "/contacts",
 			templateUrl: "template/contacts.html"
 		}).state("detail", {
-			url: "/detail",
+			url: "/detail/:id",
 			templateUrl: "template/detail.html"
 		})
+		$urlRouterProvider.when("", "/index/home")
 	}])
 })();

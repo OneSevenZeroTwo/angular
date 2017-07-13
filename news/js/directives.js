@@ -10,28 +10,69 @@
 		return {
 			templateUrl: "directive/xsearch.html",
 			link: function(scope, ele, attr) {
+				scope.searchTitle = "";
 				scope.isShowSearchBar = false;
 				scope.changeSearchBar = function() {
 					scope.isShowSearchBar = true;
 				}
+				scope.clearSearchTitle = function() {
+					scope.searchTitle = "";
+				}
 			}
 		}
 	}])
-	directives.directive("xswiper", [function() {
+	directives.directive("xswiper", ["$http", "$timeout", function($http, $timeout) {
 		return {
 			templateUrl: "directive/xswiper.html",
 			link: function(scope, ele, attr) {
-				scope.imgs = ["images/1.jpg"];				
+				scope.isLoadMore = 0
+					//scope.imgs = ["images/1.jpg"];
 				var swiper = new Swiper('.swiper-container', {
 					pagination: '.swiper-pagination',
 					paginationClickable: true
 				});
+				scope.isLoadMore++;
+				$timeout(function() {
+					$http({
+						method: "GET",
+						url: "swiperData.json",
+					}).then(function(data) {
+						console.log(data)
+						scope.imgs = data.data.imgs
+						scope.isLoadMore--;
+					})
+				}, 1000)
 			}
 		}
 	}])
-	directives.directive("xlist", [function() {
+	directives.directive("xlist", ["$http", "$window", function($http, $window) {
 		return {
-			templateUrl: "directive/xlist.html"
+			templateUrl: "directive/xlist.html",
+			link: function(scope, ele, attr) {
+				console.log(attr)
+				scope.page = 1;
+				scope.news = [];
+				scope.loadMore = function() {
+					scope.isLoadMore++;
+					$http({
+						method: "GET",
+						url: "https://cnodejs.org/api/v1//topics",
+						params: {
+							page: scope.page++,
+							tab: attr.channel,
+							limit: 10
+						}
+					}).then(function(data) {
+						scope.news = scope.news.concat(data.data.data)
+						console.log(data)
+						scope.isLoadMore--
+					})
+				}
+				scope.loadMore();
+				scope.goToDetail = function(id) {
+					$window.location.href = "#!/detail/" + id
+				}
+			}
 		}
 	}])
 	directives.directive("xfooter", [function() {
@@ -45,12 +86,18 @@
 			}
 		}
 	}])
+	directives.directive("xloading", [function() {
+		return {
+			templateUrl: "directive/xloading.html",
+			link: function(scope, ele, attr) {}
+		}
+	}])
 	directives.directive("xactionsheet", [function() {
 		return {
 			templateUrl: "directive/xactionsheet.html",
 			link: function(scope, ele, attr) {
 				scope.isShowActionSheet = false
-				scope.changeActionSheet = function(){
+				scope.changeActionSheet = function() {
 					console.log("111")
 					scope.isShowActionSheet = true
 				}
@@ -62,10 +109,25 @@
 			templateUrl: "directive/xgallery.html",
 			link: function(scope, ele, attr) {
 				scope.isShowGallery = false;
-				scope.changeGallery = function(galleryImg){
+				scope.changeGallery = function(galleryImg) {
 					scope.galleryImg = galleryImg
 					scope.isShowGallery = true;
 				}
+			}
+		}
+	}])
+	directives.directive("xarticle", ["$state","$http",function($state,$http) {
+		return {
+			templateUrl: "directive/xarticle.html",
+			link: function(scope, ele, attr) {
+				console.log($state.params)
+				$http({
+					methods:"GET",
+					url:"https://cnodejs.org/api/v1/topic/"+$state.params.id
+				}).then(function(data){
+					console.log(data)
+					scope.newDetail = data.data.data
+				})
 			}
 		}
 	}])
