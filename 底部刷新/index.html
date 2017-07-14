@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		
+		body {
+			height: 100%;
+			width: 100%;
+		}
+		
+		header {
+			height: 10%;
+			width: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			text-align: center;
+			line-height: 400%;
+		}
+		
+		#fixed {
+			/*height: 90%;*/
+			width: 100%;
+			overflow-y: auto;
+			overflow-x:hidden;
+			position: absolute;
+			top: 10%;
+			bottom:0;
+		}
+		
+		#fixed li {
+			border: 1px solid green;
+			padding: 5px;
+		}
+	</style>
+
+	<body ng-controller="indexCtrl">
+		<header>下拉刷新</header>
+		<div id="fixed">
+			<ul>
+				<li ng-repeat="n in news">{{n.title}}</li>
+			</ul>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		app.controller("indexCtrl", function($http, $scope) {
+			$scope.news = ["a", "b", "c"];
+			$scope.page = 1;
+			$scope.news = [];
+			$scope.loadMore = function() {
+				$scope.isLoadMore++;
+				$http({
+					method: "GET",
+					url: "https://cnodejs.org/api/v1//topics",
+					params: {
+						page: $scope.page++,
+						limit: 20
+					}
+				}).then(function(data) {
+					$scope.news = $scope.news.concat(data.data.data)
+					console.log(data)
+					$scope.isLoadMore--
+				})
+			}
+			angular.element(document.querySelector("#fixed")).on("scroll",function(e){
+				console.log(e.target.offsetHeight)
+				console.log(e.target.scrollHeight)
+				console.log(e.target)
+				if(e.target.offsetHeight+e.target.scrollTop>=e.target.scrollHeight){
+					console.log("到底部了")
+					$scope.loadMore()
+				}
+			})
+			$scope.loadMore()
+		})
+		//app.directive()
+		angular.bootstrap(document.body, ["ngApp"])
+	</script>
+
+</html>
